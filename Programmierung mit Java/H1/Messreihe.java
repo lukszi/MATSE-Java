@@ -22,9 +22,8 @@ public class Messreihe
             while(scan.hasNextLine())
             {
                 String line = scan.nextLine();
-
-                // Check for comments
-                if(line.charAt(0) == '%')
+                // Check for comments or empty line
+                if(line.length() == 0 || line.charAt(0) == '%')
                 {
                     commentLines++;
                     continue;
