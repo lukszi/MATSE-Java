@@ -38,7 +38,7 @@ public class Messreihe
 
     public int getMaxIndex()
     {
-        int i = 0;
-        return i;
+        int idx = 0;
+        return idx;
     }
 }
