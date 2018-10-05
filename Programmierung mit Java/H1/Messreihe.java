@@ -8,7 +8,7 @@ public class Messreihe
     private double data[];
     public Messreihe(double[] list)
     {
-
+        this.data = list;
     }
 
     public Messreihe(String fileName)
@@ -61,10 +61,10 @@ public class Messreihe
 
     public double getMin()
     {
-        double ret = data[0];
-        for (int i= 1; i<data.length; i++)  {
-            if(data[i] < ret) {
-              ret = data[i];
+        double ret = this.data[0];
+        for (int i= 1; i<this.data.length; i++)  {
+            if(this.data[i] < ret) {
+              ret = this.data[i];
             }
         }
         return ret;
@@ -73,8 +73,8 @@ public class Messreihe
     public boolean isEinheitlich()
     {
         boolean ret = true;
-        for(int i = 1; i<data.length; i++)   {
-            if (data[0]!=data[i]) {
+        for(int i = 1; i<this.data.length; i++)   {
+            if (this.data[0]!=this.data[i]) {
                 return false;
             }
         }
@@ -113,7 +113,7 @@ public class Messreihe
 
     public int getAnzahl()
     {
-        int count = data.length;
+        int count = this.data.length;
         return count;
     }
 }
