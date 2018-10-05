@@ -62,7 +62,14 @@ public class Messreihe
 
     public double getMin()
     {
-        double ret = 0.0;
+        boolean a = true;
+        double ret = 0;
+        for (int i= 0; i<data.length-1; i++)  {
+            if(data[i] < ret || a == true) {
+              ret = data[i];
+              a = false;
+            }
+        }
         return ret;
     }
 
@@ -99,7 +106,7 @@ public class Messreihe
 
     public int getAnzahl()
     {
-        int count = 0;
+        int count = data.length;
         return count;
     }
 }
