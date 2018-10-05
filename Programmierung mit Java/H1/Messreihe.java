@@ -62,12 +62,10 @@ public class Messreihe
 
     public double getMin()
     {
-        boolean a = true;
-        double ret = 0;
-        for (int i= 0; i<data.length-1; i++)  {
-            if(data[i] < ret || a == true) {
+        double ret = data[0];
+        for (int i= 1; i<data.length; i++)  {
+            if(data[i] < ret) {
               ret = data[i];
-              a = false;
             }
         }
         return ret;
@@ -76,6 +74,11 @@ public class Messreihe
     public boolean isEinheitlich()
     {
         boolean ret = true;
+        for(int i = 1; i<data.length; i++)   {
+            if (data[0]!=data[i]) {
+                return false;
+            }
+        }
         return ret;
     }
 
