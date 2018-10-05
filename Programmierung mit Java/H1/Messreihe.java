@@ -84,6 +84,11 @@ public class Messreihe
     public int zaehleGroessere(double lim)
     {
         int count = 0;
+        for(double val : this.data)
+        {
+            if(val>lim)
+                count++;
+        }
         return count;
     }
 
