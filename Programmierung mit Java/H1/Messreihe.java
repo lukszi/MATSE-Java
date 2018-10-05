@@ -1,7 +1,7 @@
 public class Messreihe
+
 {
     private double data[];
-
     public Messreihe(double[] list)
     {
 
@@ -14,8 +14,7 @@ public class Messreihe
 
     public double getMax()
     {
-        double ret = 0.0;
-        return ret;
+        return this.data[this.getMaxIndex()];
     }
 
     public double getMin()
@@ -38,8 +37,13 @@ public class Messreihe
 
     public int getMaxIndex()
     {
-        int i = 0;
-        return i;
+        int maxIndex = 0;
+        for(int i = 1; i<this.data.length;i++)
+        {
+            if(this.data[maxIndex]<this.data[i])
+                maxIndex = i;
+        }
+        return maxIndex;
     }
 
     public double[] getBereich()
