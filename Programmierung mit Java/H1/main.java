@@ -5,7 +5,7 @@ public class main
     public static void main(String args[])
     {
         try {
-            Messreihe messreihe = new Messreihe("Messwerte.txt");
+            Messreihe messreihe = new Messreihe("Programmierung mit Java/Messwerte.txt");
             System.out.println("Maximalwert: "+messreihe.getMax());
             System.out.println("Minimalwert: "+messreihe.getMin());
             System.out.println("Einheitliche Werte: "+messreihe.isEinheitlich());
