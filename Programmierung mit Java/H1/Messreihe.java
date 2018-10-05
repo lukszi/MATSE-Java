@@ -41,4 +41,18 @@ public class Messreihe
         int i = 0;
         return i;
     }
+
+    public double[] getBereich()
+    {
+        double[] range = new double[2];
+        range[0] = this.getMin();
+        range[1] = this.getMax();
+        return range;
+    }
+
+    public int getAnzahl()
+    {
+        int count = 0;
+        return count;
+    }
 }
