@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Messreihe
 
 {
@@ -9,7 +13,46 @@ public class Messreihe
 
     public Messreihe(String fileName)
     {
+        File fIn = new File(fileName);
+        int valueLines = 0;
+        int commentLines = 0;
+        try {
+            Scanner scan = new Scanner(fIn);
+            boolean firstLine = true;
+            while(scan.hasNextLine())
+            {
+                String line = scan.nextLine();
 
+                // Check for comments
+                if(line.charAt(0) == '%')
+                {
+                    commentLines++;
+                    continue;
+                }
+                try{
+                    // Check if this is the line containing the list length
+                    if(firstLine)
+                    {
+                        // If so create the array
+                        this.data = new double[Integer.valueOf(line)];
+                        firstLine = false;
+                        continue;
+                    }
+                    // Check if we read more lines then indicated in the first line
+                    if(valueLines >= this.data.length)
+                        throw new ArithmeticException();
+
+                    this.data[valueLines] = Double.valueOf(line);
+                    valueLines++;
+                }
+                catch (NumberFormatException e)
+                {
+                    throw new ArithmeticException("Syntax error in line: " + (valueLines+commentLines+1));
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public double getMax()
