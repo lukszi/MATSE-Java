@@ -73,7 +73,7 @@ public class Messreihe
         return ret;
     }
 
-    public boolean istEinheitlich()
+    public boolean isEinheitlich()
     {
         boolean ret = true;
         return ret;
