@@ -2,15 +2,29 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class Messreihe
-
 {
     private double data[];
+    
+    /**
+     *
+     * @param list array to read datapoints from
+     */
     public Messreihe(double[] list)
     {
-        this.data = list;
+        this.data = new double[list.length];
+        System.arraycopy(list,0,this.data,0,list.length);
     }
-
+    
+    /**
+     *
+     * @param fileName file to read data points from
+     */
     public Messreihe(String fileName)
     {
         File fIn = new File(fileName);
@@ -53,12 +67,20 @@ public class Messreihe
             e.printStackTrace();
         }
     }
-
+    
+    /**
+     *
+     * @return the maximum value contained in the data
+     */
     public double getMax()
     {
         return this.data[this.getMaxIndex()];
     }
-
+    
+    /**
+     *
+     * @return the minimum value contained in the data
+     */
     public double getMin()
     {
         double ret = this.data[0];
@@ -69,7 +91,11 @@ public class Messreihe
         }
         return ret;
     }
-
+    
+    /**
+     *
+     * @return true if the measured data points are all equal
+     */
     public boolean isEinheitlich()
     {
         boolean ret = true;
@@ -80,7 +106,12 @@ public class Messreihe
         }
         return ret;
     }
-
+    
+    /**
+     *
+     * @param lim only count values bigger than this
+     * @return the amount of values bigger than lim
+     */
     public int zaehleGroessere(double lim)
     {
         int count = 0;
@@ -91,7 +122,11 @@ public class Messreihe
         }
         return count;
     }
-
+    
+    /**
+     *
+     * @return the index of the biggest value
+     */
     public int getMaxIndex()
     {
         int maxIndex = 0;
@@ -102,7 +137,11 @@ public class Messreihe
         }
         return maxIndex;
     }
-
+    
+    /**
+     *
+     * @return the minimum and maximum of our data
+     */
     public double[] getBereich()
     {
         double[] range = new double[2];
@@ -110,7 +149,11 @@ public class Messreihe
         range[1] = this.getMax();
         return range;
     }
-
+    
+    /**
+     *
+     * @return the amount of values measured and saved in this structure
+     */
     public int getAnzahl()
     {
         int count = this.data.length;
