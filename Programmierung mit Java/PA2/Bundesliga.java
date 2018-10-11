@@ -35,9 +35,9 @@ public class Bundesliga
                 String[] ergebnisTokens = new String[anz_manschaften];
                 System.arraycopy(lines, lines.length - anz_manschaften, ergebnisTokens, 0, anz_manschaften);
                 resultate.put(mannschaftsName, Arrays.asList(ergebnisTokens));
-
                 linesRead++;
             }
+            scan.close();
         } catch (IOException e) {
             throw new FileNotFoundException();
         }
@@ -54,10 +54,18 @@ public class Bundesliga
 
     public Gesamtstand getGesamtstand(String mannschaft)
     {
-        List<String> ergebnisse = this.resultate.get(mannschaft);
+        List<String> ergebnisse = new ArrayList<>(this.resultate.get(mannschaft));
         int gesamtTore = 0;
         int gesamtGegentore = 0;
         int punkte = 0;
+
+        int mannschaftIndex = this.mannschaft.get(mannschaft);
+
+        for(String gegnerName: resultate.keySet())
+        {
+            List<String> spiele = resultate.get(gegnerName);
+            ergebnisse.add((new StringBuilder(spiele.get(mannschaftIndex))).reverse().toString());
+        }
 
         for(String ergebnis : ergebnisse)
         {
@@ -77,14 +85,5 @@ public class Bundesliga
             gesamtTore += tore;
         }
         return new Gesamtstand(punkte,gesamtTore,gesamtGegentore,mannschaft);
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Bundesliga{" +
-                "mannschaft=" + mannschaft +
-                ", resultate=" + resultate +
-                '}';
     }
 }
