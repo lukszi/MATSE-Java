@@ -43,7 +43,7 @@ public class GoldPreis
                 }
 
                 // Create price, add it into the list and update the dateMap
-                GoldTagesPreis tagesPreis = new GoldTagesPreis(lineTokens[0], parsePriceToDouble(lineTokens[1]));
+                GoldTagesPreis tagesPreis = new GoldTagesPreis(lineTokens[0], lineTokens[1]);
                 list.add(tagesPreis);
                 dateMap.put(lineTokens[0], list.size()-1);
             }
@@ -52,31 +52,6 @@ public class GoldPreis
         {
             throw new FileNotFoundException();
         }
-    }
-
-    /**
-     * Parses a price string as found in the file into a double
-     * @param price the price string to be parsed
-     * @return Double containing the price
-     */
-    private double parsePriceToDouble(String price)
-    {
-        price = price.replace(".","");
-        price = price.replace(",",".");
-        return Double.parseDouble(price);
-    }
-
-    /**
-     * Formats a Double price in the file into price string as found in the input file
-     * @param price price to be formatted into the file Output
-     * @return a formatted String containing the price
-     */
-    private String parsePriceToString(Double price)
-    {
-        String preis = String.valueOf(price);
-        preis = preis.replace(".", ",");
-        preis = preis.substring(0,2) + "." + preis.substring(2);
-        return preis;
     }
 
     /**
@@ -91,10 +66,7 @@ public class GoldPreis
             throw new NumberFormatException();
 
         GoldTagesPreis tagesPreis = list.get(dateMap.get(datum));
-        //Catch undefined price
-        if(tagesPreis.preis == -1)
-            return "-1,0";
-        return parsePriceToString(tagesPreis.preis);
+        return tagesPreis.parsePriceToString(tagesPreis.preis);
     }
 
     /**
