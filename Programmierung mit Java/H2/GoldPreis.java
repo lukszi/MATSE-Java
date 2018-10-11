@@ -28,6 +28,7 @@ public class GoldPreis
 
         // Parse the file
         File fIn = new File(dateiname);
+        // No closing needed, see https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
         try(Scanner scan = new Scanner(fIn)){
             while(scan.hasNextLine())
             {
