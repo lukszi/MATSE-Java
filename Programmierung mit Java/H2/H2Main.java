@@ -11,8 +11,6 @@ public class H2Main
             test.printMinMax();
         } catch (FileNotFoundException e) {
             System.out.println("Datei nicht gefunden");
-            System.out.println("Working Directory = " +
-                    System.getProperty("user.dir"));
         }
     }
 }
