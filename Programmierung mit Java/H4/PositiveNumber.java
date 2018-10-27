@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * @author Lukas Szimtenings
@@ -18,7 +19,7 @@ public class PositiveNumber
      */
     public PositiveNumber()
     {
-        createDecToNumMap();
+        this.decToNumMap = createDecToNumMap(this.MAX_BASE);
     }
 
     /**
@@ -84,10 +85,13 @@ public class PositiveNumber
      */
     private int baseToDecimal(String number, int base){
         if(base>this.MAX_BASE ||base < 2){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Base is not in the allowed range of [" + 2 + "," + this.MAX_BASE+"]");
         }
+        Set<Character> allowed_chars = createDecToNumMap(base).inverseMap.keySet();
         int decimal = 0;
         for(char cVal : number.toCharArray()){
+            if(!allowed_chars.contains(Character.toUpperCase(cVal)))
+                throw new NumberFormatException("Char \"" + cVal + "\" not allowed in system with base \"" + base + "\"");
             decimal = decimal*base + charToInt(cVal);
         }
         return decimal;
@@ -101,7 +105,7 @@ public class PositiveNumber
      */
     private String decimalToBase(int decimal, int base){
         if(base>this.MAX_BASE ||base < 2){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Base is not in the allowed range of [" + 2 + "," + this.MAX_BASE+"]");
         }
         StringBuilder sb = new StringBuilder();
 
@@ -121,15 +125,16 @@ public class PositiveNumber
      * Initializes the Map that maps each number to a corresponding char in the number system based with MAX_BASE
      *
      */
-    private void createDecToNumMap()
+    private BidirectionalMap<Integer, Character> createDecToNumMap(int base)
     {
-        decToNumMap = new BidirectionalMap<>();
-        for (Integer i = 0; i < 10 || i < this.MAX_BASE; i++) {
+        BidirectionalMap<Integer, Character> decToNumMap = new BidirectionalMap<>();
+        for (Integer i = 0; i < 10 || i < base; i++) {
             if (i < 10)
                 decToNumMap.put(i, (char) (i + 48));
             else
                 decToNumMap.put(i, (char) ('A' + i - 10));
         }
+        return decToNumMap;
     }
 
     /**
