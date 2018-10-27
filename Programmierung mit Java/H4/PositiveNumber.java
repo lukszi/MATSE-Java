@@ -18,7 +18,7 @@ public class PositiveNumber
      */
     public PositiveNumber()
     {
-        createDecToNumMap(this.MAX_BASE);
+        createDecToNumMap();
     }
 
     /**
@@ -118,14 +118,13 @@ public class PositiveNumber
     // Character conversion methods
 
     /**
-     * Initializes the Map that maps each number to a corresponding char in a given number system
+     * Initializes the Map that maps each number to a corresponding char in the number system based with MAX_BASE
      *
-     * @param numberSystem number system for which to create a map
      */
-    private void createDecToNumMap(int numberSystem)
+    private void createDecToNumMap()
     {
         decToNumMap = new BidirectionalMap<>();
-        for (Integer i = 0; i < 10 || i < numberSystem; i++) {
+        for (Integer i = 0; i < 10 || i < this.MAX_BASE; i++) {
             if (i < 10)
                 decToNumMap.put(i, (char) (i + 48));
             else
