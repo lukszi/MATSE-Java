@@ -169,6 +169,7 @@ public class PositiveNumber
     /**
      * This is a bidirectional map
      * It's a utility to achieve inverse map lookup without having to do an O(n) search
+     * If I would have been allowed to use libraries, this code could've been shorter
      *
      * @param <K> the type of keys maintained by this map
      * @param <V> the type of mapped values
