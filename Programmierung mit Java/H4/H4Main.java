@@ -5,6 +5,10 @@
  */
 public class H4Main
 {
+    /**
+     * Kopiert vom Aufgabenblatt
+     * @param args wird ignoriert, dient nur der Funktionssignatur
+     */
     public static void main(String args[]){
         PositiveNumber zs = new PositiveNumber();
         zs.setDecimal("144");

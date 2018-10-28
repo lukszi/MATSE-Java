@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -27,6 +28,11 @@ public class PositiveNumber
      * @param decimal Decimal number to be set
      */
     public void setDecimal(String decimal){
+        // Throws NumberFormatException if the String contains non-numeric characters
+        BigInteger bigInt = new BigInteger(decimal);
+        // Check if the passed value is bigger than MAX_INT
+        if(bigInt.compareTo(new BigInteger(String.valueOf(Integer.MAX_VALUE))) >= 1)
+            throw new ArithmeticException("The passed value is bigger than Integer.MAX_VALUE and is not allowed");
         this.value = Integer.valueOf(decimal);
     }
 
@@ -92,7 +98,8 @@ public class PositiveNumber
         for(char cVal : number.toCharArray()){
             if(!allowed_chars.contains(Character.toUpperCase(cVal)))
                 throw new NumberFormatException("Char \"" + cVal + "\" not allowed in system with base \"" + base + "\"");
-            decimal = decimal*base + charToInt(cVal);
+            // The opExact functions automatically detect overflows and throw Arithmetic exceptions
+            decimal = Math.addExact(Math.multiplyExact(decimal,base), charToInt(cVal));
         }
         return decimal;
     }
