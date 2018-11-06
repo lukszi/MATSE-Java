@@ -12,10 +12,10 @@ public class H4Main
     public static void main(String args[]){
         PositiveNumber zs = new PositiveNumber();
         zs.setDecimal("144");
-        System.out.println("Binaer: " + zs.getBinary());
+        System.out.println("Binaer:\t\t\t" + zs.getBinary());
         zs.setHexadecimal("affe");
-        System.out.println("Dezimal: " + zs.getDecimal());
+        System.out.println("Dezimal:\t\t" + zs.getDecimal());
         zs.setBinary("1000101011");
-        System.out.println("Hexadezimal: " + zs.getHexadecimal());
+        System.out.println("Hexadezimal:\t" + zs.getHexadecimal());
     }
 }
