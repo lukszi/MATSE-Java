@@ -11,7 +11,9 @@ public class MyArrayList
     private int[] elementData = new int[10];
     private int size = 0;
     
-    public int get(int pos){
+    public int get(int pos)
+    {
+        checkPos(pos);
         return elementData[pos];
     }
     
@@ -25,20 +27,29 @@ public class MyArrayList
     }
 
 
-    public void add(int element, int index){
-        System.arraycopy(elementData, index, elementData, index + 1, size - index);
-        elementData[index] = element;
+    public void add(int element, int pos){
+        checkPos(pos);
+        System.arraycopy(elementData, pos, elementData, pos + 1, size - pos);
+        elementData[pos] = element;
         size++;
         //Check if array is to small
         if(this.elementData.length <= this.size){
             resize(this.elementData.length*2);
         }
     }
-    
-    public void delete(int index){
-        int numMoved = size - index - 1;
+
+    private void checkPos(int pos)
+    {
+        if(pos < 0 || pos > this.size){
+            throw new ArrayIndexOutOfBoundsException();
+        }
+    }
+
+    public void delete(int pos){
+        checkPos(pos);
+        int numMoved = size - pos - 1;
         if (numMoved > 0)
-            System.arraycopy(elementData, index+1, elementData, index,
+            System.arraycopy(elementData, pos+1, elementData, pos,
                     numMoved);
         elementData[--size] = 0;
 
