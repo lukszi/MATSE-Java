@@ -18,24 +18,21 @@ public class MyArrayList
     public void add(int e){
         elementData[size] = e;
         size++;
-        resizeIfNeeded();
+        //Check if array is to small
+        if(this.elementData.length <= this.size){
+            resize(this.elementData.length*2);
+        }
     }
-    
+
+
     public void add(int element, int index){
-//        List<Integer> list = Arrays.stream(elementData).boxed().collect(Collectors.toList());
-//        try{
-//            list.add(index, element);
-//        }
-//        catch(IndexOutOfBoundsException e){
-//            throw new ArrayIndexOutOfBoundsException();
-//        }
-//        elementData = Stream.of(list.toArray()).mapToInt(value -> Integer.parseInt(value.toString())).toArray();
-//        size++;
-    
         System.arraycopy(elementData, index, elementData, index + 1, size - index);
         elementData[index] = element;
         size++;
-        resizeIfNeeded();
+        //Check if array is to small
+        if(this.elementData.length <= this.size){
+            resize(this.elementData.length*2);
+        }
     }
     
     public void delete(int index){
@@ -44,11 +41,16 @@ public class MyArrayList
             System.arraycopy(elementData, index+1, elementData, index,
                     numMoved);
         elementData[--size] = 0;
-        
+
+        //Check if array is to large
+        if(this.size <= this.elementData.length/3){
+            resize((int)Math.ceil(this.elementData.length/2.));
+        }
     }
     
     public void clear(){
         elementData = new int[elementData.length];
+        size = 0;
     }
     
     public int size(){
@@ -64,7 +66,7 @@ public class MyArrayList
         return Arrays.stream(elementData)
                 .limit(size)
                 .mapToObj(Integer::toString)
-                .collect(Collectors.joining(", ", "(", ")"));
+                .collect(Collectors.joining(", ", "[", "]"));
     }
     
     public MyArrayList clone(){
@@ -77,22 +79,10 @@ public class MyArrayList
         return list;
     }
     
-    private void resizeIfNeeded()
-    {
-        //Check if array is to small
-        if(this.elementData.length <= this.size){
-            resize(this.elementData.length*2);
-        }
-        //Check if array is to large
-        else if(this.elementData.length < this.size/3){
-            resize((int)Math.ceil(this.elementData.length/2.));
-        }
-    }
-    
     private void resize(int i)
     {
         int[] cpy = new int[i];
-        System.arraycopy(elementData,0,cpy,0, elementData.length);
+        System.arraycopy(elementData,0,cpy,0, this.size);
         elementData = cpy;
     }
 }

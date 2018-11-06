@@ -17,21 +17,21 @@ public class H5Main
         //fuege die Zahl 5 an der Position 2 der Liste hinzu
         myArrayList.add(5, 2);
         System.out.println(myArrayList);//[0,1,5,2,3,4,5,6,7,8,9]
-//        //entferne die Elemente 1-6
-//        for (int i = 6; i > 0; i--)
-//        {
-//            myArrayList.delete(i);
-//            System.out.print(myArrayList.capacity() + "/");
-//            System.out.println(myArrayList.size());
-//        }
-//        System.out.println(myArrayList);//[0,6,7,8,9]
-//        //gebe das Element an der Position 2 aus
-//        System.out.println(myArrayList.get(2));//7
-//        //erzeugt einen Klon der Liste
-//        MyArrayList myArrayList2 = myArrayList.clone();
-//        //Loesche die Liste
-//        myArrayList.clear();
-//        System.out.println(myArrayList);//[]
-//        System.out.println(myArrayList2);//[0,6,7,8,9]
+        //entferne die Elemente 1-6
+        for (int i = 6; i > 0; i--)
+        {
+            myArrayList.delete(i);
+            System.out.print(myArrayList.capacity() + "/");
+            System.out.println(myArrayList.size());
+        }
+        System.out.println(myArrayList);//[0,6,7,8,9]
+        //gebe das Element an der Position 2 aus
+        System.out.println(myArrayList.get(2));//7
+        //erzeugt einen Klon der Liste
+        MyArrayList myArrayList2 = myArrayList.clone();
+        //Loesche die Liste
+        myArrayList.clear();
+        System.out.println(myArrayList);//[]
+        System.out.println(myArrayList2);//[0,6,7,8,9]
     }
 }
