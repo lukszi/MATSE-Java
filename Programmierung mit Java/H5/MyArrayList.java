@@ -52,8 +52,8 @@ public class MyArrayList
     }
 
     /**
-     *
-     * @param pos
+     * Checks if a list position is between 0 and size, if not throws ArrayIndexOutOfBoundsException
+     * @param pos position to check
      */
     private void checkPos(int pos)
     {
@@ -131,12 +131,12 @@ public class MyArrayList
     }
 
     /**
-     *
-     * @param i
+     * resizes the elementData to size copying the old elements into the new list
+     * @param size size of the new elementData Array
      */
-    private void resize(int i)
+    private void resize(int size)
     {
-        int[] cpy = new int[i];
+        int[] cpy = new int[size];
         System.arraycopy(elementData,0,cpy,0, this.size);
         elementData = cpy;
     }
