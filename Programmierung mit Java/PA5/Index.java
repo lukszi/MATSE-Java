@@ -5,23 +5,18 @@ public class Index
 {
     public Map<String, Set<Integer>> index;
 
-    public Index()
-    {
+    public Index() {
         index = new HashMap<>();
     }
 
-    public void begriffHinzufuegen(String begriff, int seitenZahl)
-    {
+    public void begriffHinzufuegen(String begriff, int seitenZahl) {
         index.putIfAbsent(begriff, new TreeSet<>());
         index.get(begriff).add(seitenZahl);
     }
 
-    public String toString()
-    {
+    public String toString() {
         return this.index.keySet().stream().map(s -> "<" + s + ">:" + this.index.get(s).stream().map(Object::toString)
-                                                .collect(Collectors.joining(", ", "<", ">")))
-                                            .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(", ", "<", ">")))
+                .collect(Collectors.joining("\n"));
     }
-
-
 }
