@@ -1,6 +1,6 @@
 public interface GefStrategie
 {
-    public boolean getNextDecision();
+    boolean getNextDecision();
 
-    public void setOpponentNextDecision(boolean decision);
+    void setOpponentNextDecision(boolean decision);
 }
