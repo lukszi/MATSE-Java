@@ -1,6 +1,6 @@
 public class PerKind implements GefStrategie
 {
-    int cooperate = 0;
+    private int cooperate = 0;
 
     @Override
     public boolean getNextDecision()
