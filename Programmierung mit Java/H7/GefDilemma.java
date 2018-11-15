@@ -41,11 +41,9 @@ public class GefDilemma
                 points2 += 6;
             }
         }
-        if(points1 < points2){
-            System.out.println("Es gewinnt: " + "player1" + " mit " + points1 + " Punkten");
-        }
-        else if(points2 < points1){
-            System.out.println("Es gewinnt: " + "player2" + " mit " + points2 + " Punkten");
+        if(points1 < points2 || points2 < points1){
+            System.out.println("Es gewinnt: " + (points1 < points2?"player1" : "player2") + " mit " +
+                    Math.max(points1, points2)+ " Punkten");
         }
         else{
             System.out.println("Gleichstand mit " + points1 + " Punkten");
