@@ -8,6 +8,7 @@ public class Bisektionsverfahren implements Verfahren
         double ret = (xMax+xMin)/2;
         while(xMax-xMin>threshold)
         {
+            System.out.println("Using xMax=" + xMax +", xMin=" + xMax +", ret="+ret);
             if(Math.abs(f.getY(ret)) < threshold)
                 break;
             if(f.getY(xMin)*f.getY(ret) <0)

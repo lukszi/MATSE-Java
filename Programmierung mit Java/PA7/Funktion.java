@@ -1,6 +1,23 @@
-import java.util.function.Consumer;
+import java.util.function.Function;
 
-public interface Funktion
+public class Funktion
 {
-    public double getY(double x);
+    private Function<Double, Double> func;
+
+    public double getY(double x)
+    {
+        return func.apply(x);
+    }
+
+    public Funktion(Function<Double, Double> func)
+    {
+        this.func = func;
+    }
+
+    @Override
+    public String toString()
+    {
+        return func.getClass().getDeclaredMethods()[0].toString();
+        // return func.toString();
+    }
 }
