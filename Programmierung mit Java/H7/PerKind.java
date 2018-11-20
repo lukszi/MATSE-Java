@@ -17,7 +17,8 @@ public class PerKind implements GefStrategie
         return cooperate%3!=0;
     }
     /**
-    *@param set next decision
+    * @param decision
+    * set next decision
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
