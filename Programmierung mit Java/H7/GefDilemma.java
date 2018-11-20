@@ -10,7 +10,9 @@ public class GefDilemma
 
     private int points1 = 0;
     private int points2 = 0;
-
+    /**
+    * @param setting player 1 and 2
+    */
     public GefDilemma(GefStrategie player1, GefStrategie player2)
     {
         this.player1 = player1;
@@ -18,7 +20,7 @@ public class GefDilemma
     }
     /**
     * @param initializing the amount of games
-    * @return to print output who´s won the most games
+    * output who´s won the most games
     */
     public void spiele(int n)
     {
