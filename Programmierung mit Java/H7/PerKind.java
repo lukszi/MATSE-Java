@@ -6,23 +6,23 @@
 public class PerKind implements GefStrategie
 {
     private int cooperate = 0;
+    
     /**
-    * @param decision from GefStrategie
-    * @return if there will be a cooperation of the player
-    */
+     * @return the next decision this strategy makes
+     */
     @Override
     public boolean getNextDecision()
     {
-        cooperate ++;
-        return cooperate%3!=0;
+        cooperate++;
+        return cooperate % 3 != 0;
     }
+    
     /**
-    * @param decision
-    * set next decision
-    */
+     * @param decision last decision the opponent made
+     */
     @Override
     public void setOpponentNextDecision(boolean decision)
     {
-
+    
     }
 }

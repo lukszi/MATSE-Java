@@ -6,19 +6,19 @@
 public class TitForTat implements GefStrategie
 {
     private boolean oponentDecision = true;
+    
     /**
-    * @param decision from GefStragie
-    * @return next Decision
-    */
+     * @return the next decision this strategy makes
+     */
     @Override
     public boolean getNextDecision()
     {
         return this.oponentDecision;
     }
+    
     /**
-    * @param decision
-    * set next decision
-    */
+     * @param decision last decision the opponent made
+     */
     @Override
     public void setOpponentNextDecision(boolean decision)
     {

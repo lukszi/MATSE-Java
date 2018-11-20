@@ -6,23 +6,24 @@
 public class Spite implements GefStrategie
 {
     private boolean hasBetrayed;
+    
     /**
-    * @param decision from GefStrategie
-    * @return boolean if player has betrayed
-    */
+     * @return the next decision this strategy makes
+     */
     @Override
     public boolean getNextDecision()
     {
         return !this.hasBetrayed;
     }
+    
     /**
-    * @param decision
-    * set next decision dependent if betrayed
-    */
+     * @param decision last decision the opponent made
+     */
     @Override
     public void setOpponentNextDecision(boolean decision)
     {
-        if(!decision){
+        if (!decision)
+        {
             this.hasBetrayed = true;
         }
     }

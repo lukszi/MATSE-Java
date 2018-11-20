@@ -6,11 +6,12 @@
 public interface GefStrategie
 {
     /**
-    * implements a certain decision for the player
-    * @param decision
-    * set next decision
-    */
+     * @return the next decision this strategy makes
+     */
     boolean getNextDecision();
-
+    
+    /**
+     * @param decision last decision the opponent made
+     */
     void setOpponentNextDecision(boolean decision);
 }

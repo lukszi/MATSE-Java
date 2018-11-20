@@ -6,21 +6,20 @@
 public class Random implements GefStrategie
 {
     /**
-    * @param decision from GefStrategie
-    * @return random number of 0 or 1
-    */
+     * @return the next decision this strategy makes
+     */
     @Override
     public boolean getNextDecision()
     {
-        return Math.random()<0.5;
+        return Math.random() < 0.5;
     }
+    
     /**
-    * @param decision
-    * set next decision
-    */
+     * @param decision last decision the opponent made
+     */
     @Override
     public void setOpponentNextDecision(boolean decision)
     {
-
+    
     }
 }
