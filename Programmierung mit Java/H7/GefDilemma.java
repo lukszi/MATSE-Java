@@ -18,7 +18,7 @@ public class GefDilemma
     }
     /**
     * @param initializing the amount of games
-    * @return who´s won the most games
+    * @return to print output who´s won the most games
     */
     public void spiele(int n)
     {
