@@ -9,6 +9,7 @@ public class Pavlov implements GefStrategie
     private boolean lastMove = true;
     /** 
     * overrides interface GefStrategie
+    * @return boolean of last move
     */
     @Override
     public boolean getNextDecision()
@@ -18,7 +19,7 @@ public class Pavlov implements GefStrategie
     }
     /**
     * @param last decision
-    * @return set next decision
+    * set next decision
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
