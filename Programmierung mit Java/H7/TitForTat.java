@@ -8,7 +8,7 @@ public class TitForTat implements GefStrategie
     private boolean oponentDecision = true;
     /**
     * @param decision from GefStragie
-    * @return nexDecision
+    * @return next Decision
     */
     @Override
     public boolean getNextDecision()
@@ -16,8 +16,8 @@ public class TitForTat implements GefStrategie
         return this.oponentDecision;
     }
     /**
-    * @param last decision
-    * @return set next decision
+    * @param decision
+    * set next decision
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
