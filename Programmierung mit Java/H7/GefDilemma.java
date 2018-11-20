@@ -18,7 +18,6 @@ public class GefDilemma
     }
     /**
     * @param initializing the amount of games
-    * calculating points
     * @return who´s won the most games
     */
     public void spiele(int n)
@@ -26,10 +25,10 @@ public class GefDilemma
         for (int i = 0; i < n; i++) {
             boolean dec1 = player1.getNextDecision();
             boolean dec2 = player2.getNextDecision();
-
+            // set players decisions
             player1.setOpponentNextDecision(dec2);
             player2.setOpponentNextDecision(dec1);
-
+            // adding winning points to each player
             if (dec1 == dec2) {
                 if (dec1) {
                     points1 += 2;
@@ -50,6 +49,7 @@ public class GefDilemma
                 points2 += 6;
             }
         }
+        // print out winning player 
         if(points1 < points2){
             System.out.println("Es gewinnt: " + "player1" + " mit " + points1 + " Punkten");
         }
