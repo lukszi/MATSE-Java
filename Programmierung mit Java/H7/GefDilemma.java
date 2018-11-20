@@ -1,5 +1,10 @@
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class GefDilemma
-{
+{   
     private GefStrategie player1;
     private GefStrategie player2;
 
@@ -11,7 +16,11 @@ public class GefDilemma
         this.player1 = player1;
         this.player2 = player2;
     }
-
+    /**
+    * @param initializing the amount of games
+    * calculating points
+    * @return who´s won the most games
+    */
     public void spiele(int n)
     {
         for (int i = 0; i < n; i++) {
