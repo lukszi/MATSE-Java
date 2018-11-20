@@ -16,7 +16,10 @@ public class Pavlov implements GefStrategie
         this.lastMove = this.lastMove == this.opponenLastMove;
         return this.lastMove;
     }
-
+    /**
+    * @param last decision
+    * @return set next decision
+    */
     @Override
     public void setOpponentNextDecision(boolean decision)
     {
