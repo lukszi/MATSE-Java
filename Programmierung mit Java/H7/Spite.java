@@ -16,8 +16,8 @@ public class Spite implements GefStrategie
         return !this.hasBetrayed;
     }
     /**
-    * @param last decision
-    * @return set next decision
+    * @param decision
+    * set next decision dependent if betrayed
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
