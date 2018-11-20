@@ -7,8 +7,8 @@ public interface GefStrategie
 {
     /**
     * implements a certain decision for the player
-    * @param boolean is used 
-    * @return next decision of the player
+    * @param decision
+    * set next decision
     */
     boolean getNextDecision();
 
