@@ -1,8 +1,15 @@
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class Pavlov implements GefStrategie
 {
     private boolean opponenLastMove = true;
     private boolean lastMove = true;
-
+    /** 
+    * overrides interface GefStrategie
+    */
     @Override
     public boolean getNextDecision()
     {
