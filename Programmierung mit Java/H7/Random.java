@@ -15,7 +15,8 @@ public class Random implements GefStrategie
         return Math.random()<0.5;
     }
     /**
-    * @param set next decision
+    * @param decision
+    * set next decision
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
