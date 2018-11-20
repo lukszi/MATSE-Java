@@ -16,7 +16,8 @@ public class TitForTat implements GefStrategie
         return this.oponentDecision;
     }
     /**
-    * @param decision
+    * @param last decision
+    * @return set next decision
     */
     @Override
     public void setOpponentNextDecision(boolean decision)
