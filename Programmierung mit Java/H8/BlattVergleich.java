@@ -15,7 +15,7 @@ public class BlattVergleich implements Comparator<Blatt>
         blaetter[0] = o1;
         blaetter[1] = o2;
 
-        // Matrics to judge the cards by
+        // Metrics to judge the cards by
         int multi[] = new int[2];
         int sum[] = new int[2];
 
@@ -34,17 +34,21 @@ public class BlattVergleich implements Comparator<Blatt>
             multi[i] -= blatt.getBlatt().length;
         }
 
+        // does someone have triples or doubles?
         if((multi[0]>=2|| multi[1]>=2)){
+            // Does one have a higher multiple card count than the other?
             if((multi[0] != multi[1])){
                 return Integer.compare(multi[0], multi[1]);
             }
             else{
                 // Sorry for this
+                // If sums are equal compare the last cards
                 return sum[0] == sum[1] ?
                         Integer.compare(blaetter[0].getBlatt()[2],blaetter[1].getBlatt()[2]) :
                         Integer.compare(sum[0], sum[1]);
             }
         }
+        // No mults, return a comparison between the sums
         return Integer.compare(sum[0], sum[1]);
     }
 }

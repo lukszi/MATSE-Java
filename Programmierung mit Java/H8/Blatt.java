@@ -4,8 +4,13 @@ import java.util.Arrays;
 public class Blatt
 {
     private int blatt[] = new int[3];
+
+    /**
+     * Creates a new Blatt object containing the values passed in blatt
+     * @param blatt 3 card values from 2 to 14
+     */
     public Blatt(int blatt[]){
-        // Make sure values are correct
+        // Check the card values
         if(blatt.length !=3){
             throw new IllegalArgumentException("Blatt muss genau drei Werte haben");
         }
@@ -14,13 +19,14 @@ public class Blatt
                 throw new IllegalArgumentException("Ungültiger Kartenwert");
             }
         });
-        // Copy values
+
+        // Copy the card values
         System.arraycopy(blatt, 0, this.blatt, 0, 3);
     }
 
     /**
      *
-     * @return Kopie des Kartenfeldes
+     * @return Copy of the card array
      */
     public int[] getBlatt()
     {
@@ -31,12 +37,12 @@ public class Blatt
 
     /**
      *
-     * @return Eine kommageteilte Liste der Kartenwerte
+     * @return A comma separated list of card values
      */
     @Override
     public String toString()
     {
-        return blatt[0] + ", " + blatt[1] + ", " + blatt[2];
         // Not gonna write a for loop for 3 elements
+        return blatt[0] + ", " + blatt[1] + ", " + blatt[2];
     }
 }
