@@ -1,5 +1,10 @@
 import java.util.Comparator;
 
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class BlattVergleich implements Comparator<Blatt>
 {
     /**

@@ -1,6 +1,10 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class Blatt
 {
     private int blatt[] = new int[3];
