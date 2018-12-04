@@ -1,3 +1,8 @@
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class H9Main
 {
     public static void main(String[] args)
