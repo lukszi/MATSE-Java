@@ -2,6 +2,10 @@ import java.util.Arrays;
 
 public class SchiebAlg1 implements Loesungsalgorithmus
 {
+    /**
+     * Löst puzzle nur bis 1 oben links stehtn
+     * @param puzzle puzzle das gelöst werden soll
+     */
     @Override
     public void loese(Schiebepuzzle puzzle)
     {
