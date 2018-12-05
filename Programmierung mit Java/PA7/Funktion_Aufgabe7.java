@@ -1,6 +1,6 @@
 import java.util.function.Function;
 
-public class Funktion
+public class Funktion_Aufgabe7
 {
     private Function<Double, Double> func;
 
@@ -9,7 +9,7 @@ public class Funktion
         return func.apply(x);
     }
 
-    public Funktion(Function<Double, Double> func)
+    public Funktion_Aufgabe7(Function<Double, Double> func)
     {
         this.func = func;
     }

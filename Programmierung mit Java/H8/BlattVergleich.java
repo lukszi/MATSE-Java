@@ -12,48 +12,112 @@ public class BlattVergleich implements Comparator<Blatt>
      * zero, or a positive integer as the first argument is less than, equal
      * to, or greater than the second.
      */
-    @Override
-    public int compare(Blatt o1, Blatt o2)
-    {
-        // Create array so I don't have to create the code for the metrics twice
-        Blatt[] blaetter = new Blatt[2];
-        blaetter[0] = o1;
-        blaetter[1] = o2;
+    public int compare(Blatt b1, Blatt b2){
+        int 凹 = 0;
+        int 凸 = 0;
+        if(b1.getBlatt()[0] == b1.getBlatt()[1]){
+            if(b1.getBlatt()[0] == b1.getBlatt()[2]){
+                凹 = 凹 +1;
+            }
+            凹 = 凹 + 2;
+        }
+        if(!(b1.getBlatt()[0]==b1.getBlatt()[1])){
+            if(b1.getBlatt()[0]==b1.getBlatt()[2]){
+                凹 = 凹 + 2;
+            }
+            if(b1.getBlatt()[1] == b1.getBlatt()[2]){
+                凹 = 凹 + 2;
+            }
+        }
+        if(b2.getBlatt()[0] == b2.getBlatt()[1]){
+            if(b2.getBlatt()[0] == b2.getBlatt()[2]){
+                凸 = 凸 + 1;
+            }
+            凸 = 凸 + 2;
+        }
+        if(!(b2.getBlatt()[0]== b2.getBlatt()[1])){
+            if(b2.getBlatt()[0]==b2.getBlatt()[2]){
+                凸 = 凸 + 2;
+            }
+            if(b2.getBlatt()[1] == b2.getBlatt()[2]){
+                凸 = 凸 + 2;
+            }
+        }
 
-        // Metrics to judge the cards by
-        int multi[] = new int[2];
-        int sum[] = new int[2];
+        int 凹summe = 0;
+        凹summe = 凹summe + b1.getBlatt()[0];
+        凹summe = 凹summe + b1.getBlatt()[1];
+        凹summe = 凹summe + b1.getBlatt()[2];
+        int 凸sum = 0;
+        凸sum = 凸sum + b2.getBlatt()[0];
+        凸sum = 凸sum + b2.getBlatt()[1];
+        凸sum = 凸sum + b2.getBlatt()[2];
 
-        for(int i = 0; i<blaetter.length; i++){
-            Blatt blatt = blaetter[i];
-            for(int kartenWertOutter : blatt.getBlatt()){
-                // Create card sum
-                sum[i] += kartenWertOutter;
-                for(int kartenWertInner : blatt.getBlatt()){
-                    if(kartenWertInner == kartenWertOutter)
-                        // Count multiples
-                        multi[i]++;
+        if(凸 == 3){
+            if(凹 == 0){
+                return -1;
+            }
+            if(凹== 1){
+                return -1;
+            }
+            if(凹== 2){
+                return -1;
+            }
+            if(凹 == 3){
+                if(凹summe>凸sum){
+                    return 1;
+                }
+                if(凸sum>凹summe){
+                    return -1;
+                }
+                if(凸sum==凹summe){
+                    return 0;
                 }
             }
-            // Got n too much multis because I compared each value against itself
-            multi[i] -= blatt.getBlatt().length;
         }
-
-        // does someone have triples or doubles?
-        if((multi[0]>=2|| multi[1]>=2)){
-            // Does one have a higher multiple card count than the other?
-            if((multi[0] != multi[1])){
-                return Integer.compare(multi[0], multi[1]);
+        if(凸 == 2){
+            if(凹 == 2){
+                if(凸sum< 凹summe){
+                    return 1;
+                }
+                if(凸sum > 凹summe){
+                    return -1;
+                }
+                if(凸sum == 凹summe){
+                    if(b1.getBlatt()[2] > b2.getBlatt()[2]){
+                        return 1;
+                    }
+                    if(b1.getBlatt()[2] < b2.getBlatt()[2]){
+                        return -1;
+                    }
+                    if(b1.getBlatt()[2] == b2.getBlatt()[2]){
+                        return 0;
+                    }
+                }
             }
-            else{
-                // Sorry for this
-                // If sums are equal compare the last cards
-                return sum[0] == sum[1] ?
-                        Integer.compare(blaetter[0].getBlatt()[2],blaetter[1].getBlatt()[2]) :
-                        Integer.compare(sum[0], sum[1]);
+            if(凹 == 3){
+                return 1;
+            }
+            if(凹 == 1){
+                return -1;
             }
         }
-        // No mults, return a comparison between the sums
-        return Integer.compare(sum[0], sum[1]);
+        if(凸 == 0){
+            if(凹 == 2){
+                return 1;
+            }            if(凹 == 3){
+                return 1;
+            }
+            if(凹summe == 凸sum){
+                return 0;
+            }
+            if(凹summe < 凸sum){
+                return -1;
+            }
+            if(凸sum < 凹summe){
+                return 1;
+            }
+        }
+        return 0;
     }
 }

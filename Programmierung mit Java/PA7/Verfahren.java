@@ -1,4 +1,4 @@
 public interface Verfahren
 {
-    public double getNullstelle(Funktion f, double xMin, double xMax);
+    public double getNullstelle(Funktion_Aufgabe7 f, double xMin, double xMax);
 }

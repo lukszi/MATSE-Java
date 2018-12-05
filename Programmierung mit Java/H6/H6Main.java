@@ -11,7 +11,7 @@ public class H6Main
     {
         double[] ausgangsfeld = {1, 3, 5, 6};
         Rechenoperationsliste r = new Rechenoperationsliste();
-        // Berechnet die Funktion (x^2)+2
+        // Berechnet die Funktion_Aufgabe7 (x^2)+2
         r.add(new Quadrat());
         r.add(new Addition(2));
         // Berechnung und Ausgabe

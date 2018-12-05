@@ -2,7 +2,7 @@ public class Bisektionsverfahren implements Verfahren
 {
 
     @Override
-    public double getNullstelle(Funktion f, double xMin, double xMax)
+    public double getNullstelle(Funktion_Aufgabe7 f, double xMin, double xMax)
     {
         double threshold = Math.pow(10,-10);
         double ret = (xMax+xMin)/2;

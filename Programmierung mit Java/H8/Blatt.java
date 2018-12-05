@@ -10,11 +10,9 @@ public class Blatt
     private int blatt[] = new int[3];
 
     /**
-     * Creates a new Blatt object containing the values passed in blatt
      * @param blatt 3 card values from 2 to 14
      */
     public Blatt(int blatt[]){
-        // Check the card values
         if(blatt.length !=3){
             throw new IllegalArgumentException("Blatt muss genau drei Werte haben");
         }
@@ -23,8 +21,6 @@ public class Blatt
                 throw new IllegalArgumentException("Ungültiger Kartenwert");
             }
         });
-
-        // Copy the card values
         System.arraycopy(blatt, 0, this.blatt, 0, 3);
     }
 
@@ -41,12 +37,11 @@ public class Blatt
 
     /**
      *
-     * @return A comma separated list of card values
+     * @return comma separated String of card values
      */
     @Override
     public String toString()
     {
-        // Not gonna write a for loop for 3 elements
         return blatt[0] + ", " + blatt[1] + ", " + blatt[2];
     }
 }
