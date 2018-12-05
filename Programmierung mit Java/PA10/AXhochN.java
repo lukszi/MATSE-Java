@@ -26,7 +26,7 @@ public class AXhochN implements Funktion
     public static Funktion get(double a, double n){
         Funktion ret;
         if(a == 0){
-            ret = new Null();
+            ret = Null.get();
         }
         else
         {

@@ -22,12 +22,12 @@ public class Summe implements Funktion
     public static Funktion get(Funktion a, Funktion b){
         if(a.getClass().equals(Null.class)){
             if(b.getClass().equals(Null.class))
-                return new Null();
+                return Null.get();
             return b;
         }
         else if(b.getClass().equals(Null.class)){
             if(a.getClass().equals(Null.class))
-                return new Null();
+                return Null.get();
             return a;
         }
         else{
