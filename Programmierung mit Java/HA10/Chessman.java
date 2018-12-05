@@ -33,7 +33,7 @@ public abstract class Chessman
      * @param p position to move the chessman to
      */
     public void moveTo(Position p){
-        if(!getMoveList().contains(p))
+        if(!this.canMoveTo(p))
             throw new RuntimeException("Ungültiger Zug");
         this.position = p;
     }
