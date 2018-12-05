@@ -37,6 +37,10 @@ public class AXhochN implements Funktion
 
     @Override
     public String toString(){
-        return String.format("%fx^%f", this.a, this.n);
+        if(this.n == 0)
+        {
+            return String.format("%.1f", this.a);
+        }
+        return String.format("%.1fx^%.1f", this.a, this.n);
     }
 }

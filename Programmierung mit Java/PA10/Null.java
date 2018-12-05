@@ -12,4 +12,10 @@ public class Null implements Funktion
     {
         return this;
     }
+
+    @Override
+    public String toString()
+    {
+        return "0";
+    }
 }

@@ -19,7 +19,7 @@ public class Summe implements Funktion
         return get(a.getAbleitung(), b.getAbleitung());
     }
 
-    public Funktion get(Funktion a, Funktion b){
+    public static Funktion get(Funktion a, Funktion b){
         if(a.getClass().equals(Null.class)){
             if(b.getClass().equals(Null.class))
                 return new Null();
