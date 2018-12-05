@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 public class Rook extends Chessman
 {
+    /**
+     * Creates a new rook at a given position
+     * @param p position of the new rook
+     */
     public Rook(Position p)
     {
         super(p);

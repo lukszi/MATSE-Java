@@ -1,7 +1,16 @@
 import java.util.ArrayList;
 
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class Knight extends Chessman
 {
+    /**
+     * Creates a new Knight at a given position
+     * @param p position to put the chessman at
+     */
     public Knight(Position p)
     {
         super(p);
