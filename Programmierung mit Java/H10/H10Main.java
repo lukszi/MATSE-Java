@@ -3,7 +3,7 @@
  * @author Felix Szimtenings
  * @author Sebastian Schmitz
  */
-public class HA10Main
+public class H10Main
 {
     public static void main(String[] args) {
         // Test eines Turms
