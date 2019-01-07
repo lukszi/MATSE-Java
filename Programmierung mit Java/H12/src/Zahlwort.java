@@ -1,5 +1,10 @@
 import java.util.stream.Stream;
 
+/**
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
+ */
 public class Zahlwort
 {
     /**
@@ -10,7 +15,8 @@ public class Zahlwort
      */
     public static String zahlWort10(int x)
     {
-        int y = x / 10; /* nur Zehnerstelle */
+        // Betrachte nur Zehnerstelle
+        int y = x / 10;
         switch (y)
         {
             case 1:
@@ -45,8 +51,9 @@ public class Zahlwort
      */
     public static String zahlWort100(int x, int digits)
     {
-        int y = x % 100; // Betrachte nur einer und zehnerstelle
-        // 1 Sonderbehandeln
+        // Betrachte nur einer und zehnerstelle
+        int y = x % 100;
+        // 1 kriegt Sonderbehandlung
         if (y == 1)
         {
             switch (digits)
@@ -237,7 +244,10 @@ public class Zahlwort
      * @return Stream der Zahlworte von start bis stop
      */
     public static Stream<String> getZahlStream(int start, int stop){
-        Stream<Integer> st = Stream.iterate(start,t -> t+1).limit(stop-start+1);
+        // iterator stream bauen und ihn abschneiden
+        Stream<Integer> st = Stream.iterate(start,t -> t+1)
+                .limit(stop-start+1);
+        // Zahlwortstream auf unsere Zahlwort Funktion mappen
         return st.map(Zahlwort::getZahlwort);
     }
 }

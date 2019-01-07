@@ -3,7 +3,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by Lukas Szimtenings on 24.12.2018.
+ * @author Lukas Szimtenings
+ * @author Felix Szimtenings
+ * @author Sebastian Schmitz
  */
 public class ZahlwortTest
 {
