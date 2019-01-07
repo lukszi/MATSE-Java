@@ -32,10 +32,10 @@ public class Zahlwort
             case 9:
                 return "neunzig";
             default:
-                return "FEHLER";
+                return "FUBAR";
         }
     }
-    
+
     /**
      * Gibt den Betrag in Worten für 1 bis 99 zurück.
      *
@@ -116,7 +116,7 @@ public class Zahlwort
                 case 19:
                     return "neunzehn";
                 default:
-                    return "FEHLER";
+                    return "FUBAR";
             }
         }
         // 20 bis 99
@@ -132,7 +132,7 @@ public class Zahlwort
         }
         return "";
     }
-    
+
     /**
      * Gibt den Betrag in Worten für 1 bis 999 zurück.
      *
@@ -150,7 +150,7 @@ public class Zahlwort
             return zahlWort100(x / 100, 2) + "hundert" + zahlWort100(x, digits);
         }
     }
-    
+
     /**
      * Bezeichnung der Werte über einer Miilion
      *
@@ -201,7 +201,7 @@ public class Zahlwort
             }
         }
     }
-    
+
     /**
      * Betrag in Worten einer ganzen, positiven Zahl
      *
@@ -229,9 +229,15 @@ public class Zahlwort
         }
         return result.toString();
     }
-    
+
+    /**
+     *
+     * @param start Starte den Stream von hier
+     * @param stop Lasse Stream bis hier laufen
+     * @return Stream der Zahlworte von start bis stop
+     */
     public static Stream<String> getZahlStream(int start, int stop){
         Stream<Integer> st = Stream.iterate(start,t -> t+1).limit(stop-start+1);
-        return st.map(x -> (getZahlwort(x)));
+        return st.map(Zahlwort::getZahlwort);
     }
 }
